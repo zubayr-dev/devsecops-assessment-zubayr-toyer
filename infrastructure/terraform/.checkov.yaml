@@ -1,0 +1,17 @@
+# Checkov IaC Security Policy Configuration
+directory:
+  - infrastructure/terraform
+framework:
+  - terraform
+output: cli
+soft-fail: false # Exit code 1 on HIGH/CRITICAL policy violations
+quiet: false
+compact: true
+
+# Policy Rules Definition
+download-external-modules: false
+evaluate-variables: true
+
+# Managed Exceptions / Suppressions Rationale
+skip-check:
+  - CKV_AWS_18: "S3 access logging optional for non-production assessment tier"
